@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentul Meu GDPR</title>
-    <!-- Include Bootstrap CSS from CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-5">
         <h1 class="mb-3">Bine ai venit la lab</h1>
-        <!-- Use Bootstrap classes to style buttons -->
         <button class="btn btn-primary" onclick="alertCookie()">Afișează cookie-urile</button>
         <button class="btn btn-success" onclick="setCookie()">Set Cookies</button>
         <button class="btn btn-info" onclick="showCookies()">Show Cookies</button>
@@ -26,7 +24,6 @@
             alert(document.cookie);
         }
 
-        // JavaScript pentru setarea și vizualizarea cookie-urilor
         function setCookie() {
             document.cookie = "user=Jane; SameSite=Lax; Secure";
             document.cookie = "session=active; SameSite=Lax; Secure";
@@ -44,7 +41,6 @@
         }
     </script>
 
-    <!-- Include Bootstrap JS and Popper.js from CDN for enabling Bootstrap components to function properly -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

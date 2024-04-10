@@ -16,13 +16,13 @@
         <h1 class="mb-3">Bine ai venit la laboratorul 9-10 🙊🙈</h1>
         
         <div class="mb-3">
-            <button class="btn btn-primary" onclick="alertCookie()">Afișează cookie-urile</button>
-            <button class="btn btn-success" onclick="setCookie()">Setează cookie-uri inițiale</button>
-            <button class="btn btn-info" onclick="showCookies()">Arată cookie-uri</button>
-            <button class="btn btn-secondary" onclick="clearCookies()">Curăță cookie-uri</button>
-            <button class="btn btn-danger" onclick="resetOnce()">Resetează doSomethingOnlyOnce</button>
-            <button class="btn btn-warning" onclick="checkACookieExists()">Verifică existența cookie-ului reader</button>
-            <button class="btn btn-dark" onclick="checkCookieHasASpecificValue()">Verifică valoarea cookie-ului reader</button>
+            <button class="btn btn-primary" onclick="alertCookie()">Afiseaza cookie-urile</button>
+            <button class="btn btn-success" onclick="setCookie()">Seteaza cookie-uri inițiale</button>
+            <button class="btn btn-info" onclick="showCookies()">Arata cookie-uri</button>
+            <button class="btn btn-secondary" onclick="clearCookies()">Curata cookie-uri</button>
+            <button class="btn btn-danger" onclick="resetOnce()">Reseteaza doSomethingOnlyOnce</button>
+            <button class="btn btn-warning" onclick="checkACookieExists()">Verifica existenta cookie-ului reader</button>
+            <button class="btn btn-dark" onclick="checkCookieHasASpecificValue()">Verifica valoarea cookie-ului reader</button>
         </div>
 
         <div id="output" class="alert alert-secondary"></div>
@@ -41,7 +41,7 @@
                 document.cookie = "test1=Hello; SameSite=None; Secure";
                 document.cookie = "test2=World; SameSite=None; Secure";
                 document.cookie = "reader=1; SameSite=None; Secure";
-                document.cookie = "doSomethingOnlyOnce=true; expires=Fri, 4 Oct 2024 23:59:59 GMT; SameSite=None; Secure";
+                document.cookie = "doSomethingOnlyOnce=true; expires=Fri, 01 Jan 1970 00:00:00 GMT; SameSite=None; Secure";
                 alert('Cookies set!'); 
             }
 

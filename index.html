@@ -28,37 +28,43 @@
         <div id="output" class="alert alert-secondary"></div>
         
         <script>
+            // Setare cookie-uri la încărcarea paginii
             document.cookie = "session=test GDPR; path=/; SameSite=Lax; Secure";
             document.cookie = "favorite_task=collect Data; path=/; SameSite=Lax; Secure";
 
             function alertCookie() {
-                alert(document.cookie);
+                alert(document.cookie); // Afișează toate cookie-urile într-un alert
             }
 
             function setCookie() {
+                // Setarea mai multor cookie-uri cu diverse atribute
                 document.cookie = "name=oeschger; SameSite=None; Secure";
                 document.cookie = "favorite_food=tripe; SameSite=None; Secure";
                 document.cookie = "test1=Hello; SameSite=None; Secure";
                 document.cookie = "test2=World; SameSite=None; Secure";
                 document.cookie = "reader=1; SameSite=None; Secure";
                 document.cookie = "doSomethingOnlyOnce=true; expires=Fri, 4 Oct 2024 23:59:59 GMT; SameSite=None; Secure";
-                alert('Cookies set!');
+                alert('Cookies set!'); // Confirmare setare cookie-uri
             }
 
             function showCookies() {
+                // Afișare cookie-uri în elementul cu id="output"
                 document.getElementById("output").textContent = 'Cookies: ' + document.cookie;
             }
 
             function clearCookies() {
+                // Curățarea textului din elementul de output
                 document.getElementById("output").textContent = '';
             }
 
             function resetOnce() {
+                // Resetează cookie-ul "doSomethingOnlyOnce"
                 document.cookie = "doSomethingOnlyOnce=; expires=Thu, 1 Jan 1970 00:00:00 GMT; SameSite=None; Secure";
                 document.getElementById("output").textContent = '> Reset doSomethingOnlyOnce cookie!';
             }
 
             function checkACookieExists() {
+                // Verifică dacă cookie-ul "reader" există
                 if (document.cookie.split("; ").some((item) => item.trim().startsWith("reader="))) {
                     document.getElementById("output").textContent = '> The cookie "reader" exists';
                 } else {
@@ -67,6 +73,7 @@
             }
 
             function checkCookieHasASpecificValue() {
+                // Verifică dacă cookie-ul "reader" are valoarea "1"
                 if (document.cookie.split("; ").some((item) => item.includes("reader=1"))) {
                     document.getElementById("output").textContent = '> The cookie "reader" has a value of "1"';
                 } else {
@@ -76,7 +83,9 @@
         </script>
     </div>
 
+    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>

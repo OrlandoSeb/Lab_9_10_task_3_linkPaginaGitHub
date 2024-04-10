@@ -4,80 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laborator 9-10</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .btn{
-            margin:10px;
-        }
-    </style>
 </head>
 <body>
-    <div class="container mt-4">
-        <h1 class="mb-3">Bine ai venit la laboratorul 9-10 🙊🙈</h1>
-        
-        <div class="mb-3">
-            <button class="btn btn-primary" onclick="alertCookie()">Afiseaza cookie-urile</button>
-            <button class="btn btn-success" onclick="setCookie()">Seteaza cookie-uri inițiale</button>
-            <button class="btn btn-info" onclick="showCookies()">Arata cookie-uri</button>
-            <button class="btn btn-secondary" onclick="clearCookies()">Curata cookie-uri</button>
-            <button class="btn btn-danger" onclick="resetOnce()">Reseteaza doSomethingOnlyOnce</button>
-            <button class="btn btn-warning" onclick="checkACookieExists()">Verifica existenta cookie-ului reader</button>
-            <button class="btn btn-dark" onclick="checkCookieHasASpecificValue()">Verifica valoarea cookie-ului reader</button>
-        </div>
+    <h1>Bine ai venit la laboratorul 9-10 🙊🙈</h1>
+    
+    <button onclick="alertCookie()">Afiseaza cookie-urile</button>
+    <button onclick="setCookie()">Seteaza cookie-uri inițiale</button>
+    <button onclick="alert(showCookies())">Arata cookie-uri</button>
+    <button onclick="alert(clearCookies())">Curata cookie-uri</button>
+    <button onclick="resetOnce()">Reseteaza doSomethingOnlyOnce</button>
+    <button onclick="alert(checkACookieExists())">Verifica existenta cookie-ului reader</button>
+    <button onclick="alert(checkCookieHasASpecificValue())">Verifica valoarea cookie-ului reader</button>
 
-        <div id="output" class="alert alert-secondary"></div>
-        
-        <script>
-            document.cookie = "session=test GDPR; path=/; SameSite=Lax; Secure";
-            document.cookie = "favorite_task=collect Data; path=/; SameSite=Lax; Secure";
+    <script>
+        document.cookie = "session=test GDPR; path=/; SameSite=Lax; Secure";
+        document.cookie = "favorite_task=collect Data; path=/; SameSite=Lax; Secure";
 
-            function alertCookie() {
-                alert(document.cookie); 
-            }
+        function alertCookie() {
+            alert(document.cookie); 
+        }
 
-            function setCookie() {
-                document.cookie = "name=oeschger; SameSite=None; Secure";
-                document.cookie = "favorite_food=tripe; SameSite=None; Secure";
-                document.cookie = "test1=Hello; SameSite=None; Secure";
-                document.cookie = "test2=World; SameSite=None; Secure";
-                document.cookie = "reader=1; SameSite=None; Secure";
-                document.cookie = "doSomethingOnlyOnce=true; expires=Fri, 01 Jan 1970 00:00:00 GMT; SameSite=None; Secure";
-                alert('Cookies set!'); 
-            }
+        function setCookie() {
+            document.cookie = "name=oeschger; SameSite=None; Secure";
+            document.cookie = "favorite_food=tripe; SameSite=None; Secure";
+            document.cookie = "test1=Hello; SameSite=None; Secure";
+            document.cookie = "test2=World; SameSite=None; Secure";
+            document.cookie = "reader=1; SameSite=None; Secure";
+            document.cookie = "doSomethingOnlyOnce=true; expires=Fri, 01 Jan 1970 00:00:00 GMT; SameSite=None; Secure";
+            alert('Cookies set!'); 
+        }
 
-            function showCookies() {
-                document.getElementById("output").textContent = 'Cookies: ' + document.cookie;
-            }
+        function showCookies() {
+            return 'Cookies: ' + document.cookie;
+        }
 
-            function clearCookies() {
-                document.getElementById("output").textContent = '';
-            }
+        function clearCookies() {
+            return 'Cookies cleared!';
+        }
 
-            function resetOnce() {
-                document.cookie = "doSomethingOnlyOnce=; expires=Thu, 1 Jan 1970 00:00:00 GMT; SameSite=None; Secure";
-                document.getElementById("output").textContent = '> Reset doSomethingOnlyOnce cookie!';
-            }
+        function resetOnce() {
+            document.cookie = "doSomethingOnlyOnce=; expires=Thu, 1 Jan 1970 00:00:00 GMT; SameSite=None; Secure";
+            alert('Reset doSomethingOnlyOnce cookie!');
+        }
 
-            function checkACookieExists() {
-                if (document.cookie.split("; ").some((item) => item.trim().startsWith("reader="))) {
-                    document.getElementById("output").textContent = '> The cookie "reader" exists';
-                } else {
-                    document.getElementById("output").textContent = '> The cookie "reader" does not exist';
-                }
-            }
+        function checkACookieExists() {
+            return document.cookie.split("; ").some((item) => item.trim().startsWith("reader=")) ?
+                'The cookie "reader" exists' : 'The cookie "reader" does not exist';
+        }
 
-            function checkCookieHasASpecificValue() {
-                if (document.cookie.split("; ").some((item) => item.includes("reader=1"))) {
-                    document.getElementById("output").textContent = '> The cookie "reader" has a value of "1"';
-                } else {
-                    document.getElementById("output").textContent = '> The cookie "reader" does not have the value "1"';
-                }
-            }
-        </script>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        function checkCookieHasASpecificValue() {
+            return document.cookie.split("; ").some((item) => item.includes("reader=1")) ?
+                'The cookie "reader" has a value of "1"' : 'The cookie "reader" does not have the value "1"';
+        }
+    </script>
 </body>
 </html>

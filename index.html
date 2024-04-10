@@ -3,43 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentul Meu GDPR</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Laborator 9-10</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-3">Bine ai venit la lab</h1>
-        <button class="btn btn-primary" onclick="alertCookie()">Afișează cookie-urile</button>
-        <button class="btn btn-success" onclick="setCookie()">Set Cookies</button>
-        <button class="btn btn-info" onclick="showCookies()">Show Cookies</button>
-        <button class="btn btn-secondary" onclick="clearCookies()">Clear Output</button>
+    <div class="container mt-4">
+        <h1 class="mb-3">Bine ai venit la laboratorul 9-10 🙊🙈</h1>
         
-        <div id="output" class="mt-3"></div>
-    </div>
-    
-    <script>
-        document.cookie = "session=test GDPR;path=/";
-        document.cookie = "favorite_task=collect Data;path=/";
-        function alertCookie() {
-            alert(document.cookie);
-        }
+        <div class="mb-3">
+            <button class="btn btn-primary" onclick="alertCookie()">Afișează cookie-urile</button>
+            <button class="btn btn-success" onclick="setCookie()">Setează cookie-uri inițiale</button>
+            <button class="btn btn-info" onclick="showCookies()">Arată cookie-uri</button>
+            <button class="btn btn-secondary" onclick="clearCookies()">Curăță cookie-uri</button>
+            <button class="btn btn-danger" onclick="resetOnce()">Resetează doSomethingOnlyOnce</button>
+            <button class="btn btn-warning" onclick="checkACookieExists()">Verifică existența cookie-ului reader</button>
+            <button class="btn btn-dark" onclick="checkCookieHasASpecificValue()">Verifică valoarea cookie-ului reader</button>
+        </div>
 
-        function setCookie() {
-            document.cookie = "user=Jane; SameSite=Lax; Secure";
-            document.cookie = "session=active; SameSite=Lax; Secure";
-            alert('Cookies set!');
-        }
+        <div id="output" class="alert alert-secondary"></div>
         
-        function showCookies() {
-            const output = document.getElementById("output");
-            output.textContent = 'Cookies: ' + document.cookie;
-        }
-        
-        function clearCookies() {
-            const output = document.getElementById("output");
-            output.textContent = '';
-        }
-    </script>
+        <script>
+            document.cookie = "session=test GDPR; path=/; SameSite=Lax; Secure";
+            document.cookie = "favorite_task=collect Data; path=/; SameSite=Lax; Secure";
+
+            function alertCookie() {
+                alert(document.cookie);
+            }
+
+            function setCookie() {
+                document.cookie = "name=oeschger; SameSite=None; Secure";
+                document.cookie = "favorite_food=tripe; SameSite=None; Secure";
+                document.cookie = "test1=Hello; SameSite=None; Secure";
+                document.cookie = "test2=World; SameSite=None; Secure";
+                document.cookie = "reader=1; SameSite=None; Secure";
+                document.cookie = "doSomethingOnlyOnce=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+                alert('Cookies set!');
+            }
+
+            function showCookies() {
+                document.getElementById("output").textContent = 'Cookies: ' + document.cookie;
+            }
+
+            function clearCookies() {
+                document.getElementById("output").textContent = '';
+            }
+
+            function resetOnce() {
+                document.cookie = "doSomethingOnlyOnce=; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=None; Secure";
+                document.getElementById("output").textContent = '> Reset doSomethingOnlyOnce cookie!';
+            }
+
+            function checkACookieExists() {
+                if (document.cookie.split("; ").some((item) => item.trim().startsWith("reader="))) {
+                    document.getElementById("output").textContent = '> The cookie "reader" exists';
+                } else {
+                    document.getElementById("output").textContent = '> The cookie "reader" does not exist';
+                }
+            }
+
+            function checkCookieHasASpecificValue() {
+                if (document.cookie.split("; ").some((item) => item.includes("reader=1"))) {
+                    document.getElementById("output").textContent = '> The cookie "reader" has a value of "1"';
+                } else {
+                    document.getElementById("output").textContent = '> The cookie "reader" does not have the value "1"';
+                }
+            }
+        </script>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
